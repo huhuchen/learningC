@@ -1,6 +1,5 @@
 #include <stdio.h>
 
-
 //code 1
 //count the count of char in input stream
 //main()
@@ -19,32 +18,69 @@
 
 //code 2
 //count the count of line , word and char in input stream
-#define IN 0  /* inside word */
-#define OUT 1 /* outside word */
+//#define IN 0  /* inside word */
+//#define OUT 1 /* outside word */
+//
+//main()
+//{
+//    int line, word, nc;
+//    int status;
+//    char c;
+//    
+//    line = word = nc = 0;
+//    status = OUT;
+//
+//    while ((c = getchar()) != EOF)
+//    {
+//        ++nc;
+//        if (c == '\n')
+//            ++line;
+//        if (c == '\n' || c == ' ' || c == '\t')
+//            status = OUT;
+//        else if (status == OUT)
+//        {
+//            status = IN;
+//            ++word;
+//        }    
+//    }
+//        
+//    printf("\nline : %d \nword : %d \nchar : %d\n", line, word, nc);
+//}
 
+
+//code 3
+//static the ocunt of digit 0-9,whitespace(tab, space,enter) and other char
 main()
 {
-    int line, word, nc;
-    int status;
-    char c;
-    
-    line = word = nc = 0;
-    status = OUT;
+    int num, c, nwhite, nother;
+    int ndigit[10];
 
-    while ((c = getchar()) != EOF)
+    nwhite = nother = 0;
+
+    for(num = 0; num <= 9; num++)
     {
-        ++nc;
-        if (c == '\n')
-            ++line;
-        if (c == '\n' || c == ' ' || c == '\t')
-            status = OUT;
-        else if (status == OUT)
-        {
-            status = IN;
-            ++word;
-        }    
+        ndigit[num] = 0;
     }
-        
-    printf("\nline : %d \nword : %d \nchar : %d\n", line, word, nc);
+
+    while((c = getchar()) != EOF)
+    {
+        if ('0' <= c <= '9')
+            ++ndigit[c-'0'];
+        else if (c == '\t' || c == '\n' || c == ' ')
+        {
+            ++nwhite;
+            printf("nwhite : %d", nwhite);
+        }
+        else
+            ++nother;
+    }
+
+    printf("nwhite: %d \n", nwhite);
+    printf("nother: %d \n", nother);
+
+    for(num=0; num<=9; num++)
+        printf("digit: %d count :%d \n", num, ndigit[num]);
 }
 
+
+ 
