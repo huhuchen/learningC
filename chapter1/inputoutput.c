@@ -50,7 +50,7 @@
 
 //code 3
 //static the ocunt of digit 0-9,whitespace(tab, space,enter) and other char
-main()
+int main()
 {
     int num, c, nwhite, nother;
     int ndigit[10];
@@ -64,22 +64,22 @@ main()
 
     while((c = getchar()) != EOF)
     {
-        if ('0' <= c <= '9')
+        if ('0' <= c && c <= '9')
             ++ndigit[c-'0'];
         else if (c == '\t' || c == '\n' || c == ' ')
         {
             ++nwhite;
-            printf("nwhite : %d", nwhite);
         }
         else
             ++nother;
     }
 
-    printf("nwhite: %d \n", nwhite);
-    printf("nother: %d \n", nother);
+    printf("\nnwhite: %d", nwhite);
+    printf("\nnother: %d", nother);
 
     for(num=0; num<=9; num++)
         printf("digit: %d count :%d \n", num, ndigit[num]);
+    return 0;
 }
 
 
