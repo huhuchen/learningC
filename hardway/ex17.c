@@ -4,8 +4,8 @@
 #include <string.h>
 
 
-#define MAX_DATA  512
-#define MAX_LINE 100
+#define MAX_DATA 20 
+#define MAX_LINE 10
 
 
 struct Address {
@@ -141,7 +141,7 @@ int main(int argc, char *argv[])
 
     struct Connection *conn = Database_open(filename, action); 
     int id;
-    id = atoi(argv[3]);
+    if (argc > 3) id = atoi(argv[3]);
     switch (action){
         case 'c': 
             Database_create(conn);
