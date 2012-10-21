@@ -31,6 +31,7 @@ void die(const char *message)
     }else {
         printf("ERROR: %s \n", message);
     }
+    exit(1);
 }
 
 void Database_load(struct Connection *conn){
