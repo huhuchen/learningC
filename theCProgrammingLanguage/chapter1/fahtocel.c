@@ -9,7 +9,7 @@ main()
 
     for (fahr = LOWER; fahr <= UPPER; fahr = fahr + STEP)
     {
-        
+
         printf("%3.0f %6.1f\n", fahr, ((5.0/9.0)*(fahr-32.0)));
     }
 }
@@ -27,7 +27,7 @@ main()
 //    {
 //        celsius = 5.0 * (fahr - 32.0) / 9.0;
 //        printf("%3.0f %6.1f\n", fahr, celsius);
-//        fahr+=step; 
+//        fahr+=step;
 //    }
 //}
 //main()
