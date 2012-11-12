@@ -3,7 +3,7 @@
 #define MAXSIZE  200
 
 int get_line(char line[], int max);
-int index_pattern(char line[], int max);
+int index_pattern(char line[], char searchfor[]);
 
 char pattern[] = "you";
 
@@ -11,36 +11,29 @@ int main(int argc, char *argv[])
 {
     char line[MAXSIZE];
     int limit = MAXSIZE;
-    int length;
-    int index;
+    int found = 0;
 
-    while((length=get_line(line, limit)) > 0){
-        if((index=index_pattern(line, length)) < length){
+    while(get_line(line, limit) > 0){
+        if(index_pattern(line, pattern) > 0){
             printf("\n%s", line);
+            found++;
         }
     }
-    return 0;
+    return found;
 }
 
-int index_pattern(char s[], int length)
+int index_pattern(char s[], char t[])
 {
     int i, j;
-    int len;
 
-    len = sizeof(pattern) / sizeof(*pattern);
-
-    for(i=0; i<length; i++){
-        for(j=0; j<len-1; j++){
-            if(s[i+j]!=pattern[j]){
-                break;
-            }
-        }
-        if(j==len-1){
-            break;
+    for(i=0; s[i] != '\0'; i++){
+        for(j=0; t[j] != '\0' && s[i+j] != t[j]; j++)
+            ;
+        if(j>0 && t[j] == '\0'){
+            return i;
         }
     }
-
-    return i;
+    return -1;
 }
 
 int get_line(char s[], int limit)
