@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 
 double atof(char *strnum);
 
@@ -17,7 +18,35 @@ int main(int argc, char *argv[])
     return 0;
 }
 
+double atof(char *s)
+{
+    double result;
+    int i, sign, power;
 
+    for(i=0; isspace(s[i]); i++)
+        ;
+    sign = (s[i] == '-') ? -1: 1;
+
+    if (s[i] == '+' || s[i] == '-')
+        i++;
+    for(result=0; isdigit(s[i]); i++)
+    {
+        result = result * 10 + s[i] - '0';
+    }
+    if(s[i] == '.')
+        i++;
+
+    for(power=1; isdigit(s[i]); i++)
+    {
+        result = result * 10 + s[i] - '0';
+        power *= 10;
+    }
+
+    result = result / power;
+    return result;
+}
+
+/*
 double atof(char *s){
     int i = 0;
     double result;
@@ -49,3 +78,4 @@ double atof(char *s){
 
     return result * sign / power;
 }
+*/
