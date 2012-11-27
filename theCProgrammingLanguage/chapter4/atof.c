@@ -42,7 +42,7 @@ double atof(char *s)
         power *= 10;
     }
 
-    result = result / power;
+    result = sign * result / power;
     return result;
 }
 
