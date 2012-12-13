@@ -39,7 +39,7 @@ void writelines(char *s[], int max)
     while(i <= max)
     {
         temp = s[i];
-        printf("\n%p", temp);
+        printf("\n%s", temp);
         i++;
     }
 
@@ -69,7 +69,6 @@ void strcp(char *line1, char *line2)
     {
         i++;
     }
-
 }
 
 
@@ -90,7 +89,7 @@ int strcmp(char *s1, char *s2)
             break;
         }
     }
-    return 0;
+    return result;
 }
 
 

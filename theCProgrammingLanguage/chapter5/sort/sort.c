@@ -17,7 +17,7 @@ int main()
     }else{
         printf("\nno inputs\n");
     }
-
+    return 0;
 
 }
 
