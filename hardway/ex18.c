@@ -49,7 +49,7 @@ void test_sorting(int *numbers, int count, compare_cb cmp){
     }
 
     printf("\n");
-    
+
 
 }
 
